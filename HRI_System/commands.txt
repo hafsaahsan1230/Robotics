@@ -1,0 +1,25 @@
+chmod +x Primary_Display/*.py
+
+chmod +x Secondary_Display/*.py
+
+chmod +x scripts/*.py
+
+cd ~/catkin_ws
+
+catkin_make
+
+source devel/setup.bash
+
+
+cd ~/catkin_ws/src/HRI_System
+
+
+
+roscore
+
+
+source ~/catkin_ws/devel/setup.bash
+
+roslaunch HRI_System hri.launch
+
+cd ~/catkin_ws/src/HRI_System

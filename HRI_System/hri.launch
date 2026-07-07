@@ -1,0 +1,33 @@
+<launch>
+
+    <node pkg="HRI_System"
+          type="emotion_display.py"
+          name="emotion_display"
+          output="screen"/>
+
+    <node pkg="HRI_System"
+          type="navigation_display.py"
+          name="navigation_display"
+          output="screen"/>
+
+    <node pkg="HRI_System"
+          type="advertisement_gui.py"
+          name="advertisement_gui"
+          output="screen"/>
+
+    <node pkg="HRI_System"
+          type="emotion_publisher.py"
+          name="emotion_publisher"
+          output="screen"/>
+
+    <node pkg="HRI_System"
+          type="location_publisher.py"
+          name="location_publisher"
+          output="screen"/>
+
+    <node pkg="HRI_System"
+          type="ad_publisher.py"
+          name="ad_publisher"
+          output="screen"/>
+
+</launch>
