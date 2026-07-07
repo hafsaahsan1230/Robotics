@@ -1,0 +1,21 @@
+<launch>
+    <!-- USB Camera Node -->
+    <node pkg="usb_cam" type="usb_cam_node" name="lifecam" output="screen">
+        <!-- Device path -->
+        <param name="video_device" value="/dev/video4"/>
+        
+        <!-- Resolution for LifeCam HD-3000 -->
+        <param name="image_width" value="1280"/>
+        <param name="image_height" value="720"/>
+        <param name="pixel_format" value="mjpeg"/>
+        <param name="framerate" value="30"/>
+        
+        <!-- Frame ID -->
+        <param name="camera_frame_id" value="lifecam_frame"/>
+    </node>
+
+    <!-- Optional: View camera -->
+    <!-- <node pkg="image_view" type="image_view" name="viewer" >
+        <remap from="image" to="/lifecam/image_raw"/>
+    </node> -->
+</launch>
