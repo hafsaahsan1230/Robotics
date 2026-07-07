@@ -1,0 +1,31 @@
+<launch>
+
+  <!-- Start Gazebo -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name"
+       value="$(find nova_motion_bot)/worlds/corridor.world"/>
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="false"/>
+  </include>
+
+  <!-- Load Robot Description -->
+  <param name="robot_description"
+         textfile="$(find nova_motion_bot)/urdf/nova_bot.urdf"/>
+
+  <!-- Spawn Robot -->
+  <node
+    name="spawn_robot"
+    pkg="gazebo_ros"
+    type="spawn_model"
+    output="screen"
+    args="-file $(find nova_motion_bot)/urdf/nova_bot.urdf -urdf -model nova_bot -z 0.05"/>
+  <!-- Start Straight Motion Node -->
+  <node pkg="nova_motion_bot"
+        type="move_straight.py"
+        name="move_straight_node"
+        output="screen"/>
+
+</launch>

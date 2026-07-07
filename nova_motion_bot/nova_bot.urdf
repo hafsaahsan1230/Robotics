@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+
+<robot name="nova_bot">
+
+  <link name="base_link">
+
+    <visual>
+
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+
+      <geometry>
+        <mesh filename="package://nova_motion_bot/meshes/Rover.stl"
+              scale="1 1 1"/>
+      </geometry>
+
+      <!-- Premium Dark Grey -->
+      <material name="premium_dark">
+        <color rgba="0.18 0.18 0.20 1.0"/>
+      </material>
+
+    </visual>
+
+    <!-- Tiny collision only -->
+    <collision>
+
+      <origin xyz="0 0 0"/>
+
+      <geometry>
+        <box size="0.01 0.01 0.01"/>
+      </geometry>
+
+    </collision>
+
+    <inertial>
+
+      <mass value="0.1"/>
+
+      <origin xyz="0 0 0"/>
+
+      <inertia
+        ixx="0.0001"
+        ixy="0"
+        ixz="0"
+        iyy="0.0001"
+        iyz="0"
+        izz="0.0001"/>
+
+    </inertial>
+
+  </link>
+
+  <gazebo reference="base_link">
+
+    <!-- Gazebo material -->
+    <material>Gazebo/DarkGrey</material>
+
+    <gravity>false</gravity>
+
+    <selfCollide>false</selfCollide>
+
+    <kinematic>true</kinematic>
+
+  </gazebo>
+
+</robot>
